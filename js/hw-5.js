@@ -55,25 +55,55 @@ console.log(arrayTask5)
 
 // Task 6
 console.log('Task 6')
+
 const arrayTask6  = [9, 8, 7, 'a', 6, 5]
 console.log(arrayTask6)
+
 const arraySort = arrayTask6.sort()
 console.log(arraySort)
+
 const filteredTask6 = arraySort.filter(item => item !== 'a')
 console.log(filteredTask6) 
 
 // Task 7
 console.log('Task 7')
+const arrayTask7 = [9, 8, 7, 6, 5]
+      alert(` Запомните числа: ${arrayTask7}`)
+const questionForUser = String(prompt('Угадайте число из массива чисел'))
+const userInput = Number(questionForUser)
 
+if (arrayTask7.includes(userInput)) {
+      alert('✅ Угадал')
+} else {
+      alert('❌ Нет такого числа.')
+}
 
 // Task 8
+console.log('Task 8')
+const stringTask8 = String('abcdef')
+console.log(stringTask8)
+
+const stringTask8Rev = stringTask8.split('').reverse().join('')
+console.log(stringTask8Rev)
+
 // Task 9
+console.log('Task 9')
+const arrayTask9 = [[1, 2, 3], [4, 5, 6]];
+const flatArrayTask9 = arrayTask9.reduce((acc, row) => acc.concat(row), [])
+console.log(flatArrayTask9)
+
 // Task 10
+console.log('Task 10')
 // Task 11
+console.log('Task 11')
 // Task 12
+console.log('Task 12')
 // Task 13
+console.log('Task 13')
 // Task 14
+console.log('Task 14')
 // Task 15
+console.log('Task 15')
 
 //  Game quiz (Викторина)
 const startQuiz = () => {
