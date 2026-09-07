@@ -1,5 +1,6 @@
 
 // Task 1
+console.log('Task 1')
 const arrayTask1 = [1, 5, 4, 10, 0, 3]
 // Цикл For
       for (i = 0; i < arrayTask1.length; i++) {
@@ -17,6 +18,7 @@ const arrayTask1 = [1, 5, 4, 10, 0, 3]
       }
 
 // Task 2
+console.log('Task 2')
 const arrayTask2 = [1, 5, 4, 10, 0, 3]
 console.log(`Массив ${arrayTask2}`)
 
@@ -24,14 +26,46 @@ const index = arrayTask2.indexOf(4)
 console.log(`${index} - индекс числа 4`)
 
 // Task 3
+console.log('Task 3')
 const arrayTask3 = [1, 3, 5, 10, 20]
-const joinArrayTask3 = arrayTask3.join(', ')
+const joinArrayTask3 = arrayTask3.join(' ')
 console.log(joinArrayTask3)
 
 // Task 4
+console.log('Task 4')
+const arrayTask4 = []
+for (let i = 0; i < 3; i++) {
+  const row = []
+
+  for (let j = 0; j < 3; j++) {
+    row.push(1);
+  }
+  // Добавляем готовую строку в главный массив
+  arrayTask4.push(row)
+}
+console.log(arrayTask4)
+
 // Task 5
+console.log('Task 6')
+const arrayTask5 = [1, 1, 1]
+for (k = 0; k < 3; k++) {
+      arrayTask5.push(2)
+}
+console.log(arrayTask5)
+
 // Task 6
+console.log('Task 6')
+const arrayTask6  = [9, 8, 7, 'a', 6, 5]
+console.log(arrayTask6)
+const arraySort = arrayTask6.sort()
+console.log(arraySort)
+const filteredTask6 = arraySort.filter(item => item !== 'a')
+console.log(filteredTask6) 
+
 // Task 7
+console.log('Task 7')
+
+
 // Task 8
 // Task 9
 // Task 10
