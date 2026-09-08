@@ -197,7 +197,7 @@ const startQuiz = () => {
         `${item.question}\n${item.options.join("\n")}\n\nВведите номер ответа (1, 2 или 3):`
       )
 
-      // Нажата кнопка "Отмена" – прерываем всю викторину
+      // Кнопка "Отмена" – прерываем всю викторину
       if (input === null) {
         throw new Error("cancel")
       }
