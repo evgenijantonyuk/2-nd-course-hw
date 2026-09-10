@@ -149,7 +149,7 @@ console.log(formatRussianDate(now));
 
 // ======================= GAMES ===============================
 // Угадай число
-function ganeGuessNumber() {
+function gameGuessNumber() {
   // 1. Генерируем случайное число от 1 до 100
   const secretNumber = Math.floor(Math.random() * 100) + 1;
   let attempts = 0;
@@ -168,8 +168,6 @@ function ganeGuessNumber() {
       );
       break;
     }
-
-    // Преобразуем ввод в число
     guess = Number(guess);
 
     // Проверяем корректность ввода
@@ -180,7 +178,6 @@ function ganeGuessNumber() {
 
     attempts++;
 
-    // 3. Сравниваем числа
     if (guess < secretNumber) {
       alert("Мало! Загаданное число больше.");
     } else if (guess > secretNumber) {
@@ -191,6 +188,73 @@ function ganeGuessNumber() {
       );
     }
   } while (guess !== secretNumber);
+}
+// Простая арифметика
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function startGameSimpleAriphmetix() {
+    const ops = ['+', '-', '*', '/',]
+    const op = ops[randomInt(0, 3)]
+
+    let a, b, answer
+
+    switch (op) {
+        case '+': 
+            a = randomInt(1,20); 
+            b = randomInt(1,20); 
+            answer = a+b; 
+                break;
+        case '-': 
+            a = randomInt(1,20); 
+            b = randomInt(1,a); 
+            answer = a-b; 
+                break;
+        case '*': 
+            a = randomInt(1,12); 
+            b = randomInt(1,12); 
+            answer = a*b;
+                break;
+        case '/': 
+            b = randomInt(1,10); 
+            let q = randomInt(1,10); 
+            a = b*q; 
+            answer = q; 
+                break;
+    }
+
+    const user = parseInt(prompt(`Сколько будет ${a} ${op} ${b} ?`), 10)
+    if (user === answer) {
+        alert('✅ Правильно!')
+    } else {
+        alert(`❌ Неверно. Правильный ответ: ${answer}`)
+    }
+    if (confirm('Ещё пример?')) startGameSimpleAriphmetix();
+}
+// Перевени текст
+function startGameTernOver() {
+    let inputWord;
+    do {
+        inputWord = String(prompt('Введите слово и запомните его!') ?? '');
+        if (inputWord.trim() === '') {
+            alert('❌ Вы ничего не ввели');
+        }
+    } while (inputWord.trim() === '');
+
+    let inputTernOverWord;
+    do {
+        inputTernOverWord = String(prompt('Напишите слово наоборот.') ?? '');
+        if (inputTernOverWord.trim() === '') {
+            alert('❌ Вы ничего не ввели');
+        }
+    } while (inputTernOverWord.trim() === '');
+// Проверка
+    if (inputWord.trim() === inputTernOverWord.split('').reverse().join('')) {
+        alert(`✅ Отлично — "${inputTernOverWord}" соответствует "${inputWord}" написанному наоборот.`);
+    } else {
+        alert('❌ Не верно...');
+    }
 }
 //  Game quiz (Викторина)
 function startQuiz() {
@@ -214,7 +278,6 @@ function startQuiz() {
 
   const results = [];
 
-  // Функция для опроса одного вопроса (возвращает 1 или 0)
   const askQuestion = (item) => {
     let userAnswer = null;
     let valid = false;
@@ -224,12 +287,10 @@ function startQuiz() {
         `${item.question}\n${item.options.join("\n")}\n\nВведите номер ответа (1, 2 или 3):`,
       );
 
-      // Кнопка "Отмена" – прерываем всю викторину
       if (input === null) {
         throw new Error("cancel");
       }
 
-      // Пустой ввод – просим ввести заново
       if (input.trim() === "") {
         alert("Вы не ввели ответ. Пожалуйста, введите число 1, 2 или 3.");
         continue;
