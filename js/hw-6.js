@@ -188,73 +188,94 @@ function gameGuessNumber() {
       );
     }
   } while (guess !== secretNumber);
+
+  if (confirm("Ещё пример?")) {
+    gameGuessNumber();
+  } else {
+    alert("Спасибо за игру! 👋");
+  }
 }
 // Простая арифметика
 function randomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function startGameSimpleAriphmetix() {
-    const ops = ['+', '-', '*', '/',]
-    const op = ops[randomInt(0, 3)]
+  const ops = ["+", "-", "*", "/"];
+  const op = ops[randomInt(0, 3)];
 
-    let a, b, answer
+  let a, b, answer;
 
-    switch (op) {
-        case '+': 
-            a = randomInt(1,20); 
-            b = randomInt(1,20); 
-            answer = a+b; 
-                break;
-        case '-': 
-            a = randomInt(1,20); 
-            b = randomInt(1,a); 
-            answer = a-b; 
-                break;
-        case '*': 
-            a = randomInt(1,12); 
-            b = randomInt(1,12); 
-            answer = a*b;
-                break;
-        case '/': 
-            b = randomInt(1,10); 
-            let q = randomInt(1,10); 
-            a = b*q; 
-            answer = q; 
-                break;
-    }
+  switch (op) {
+    case "+":
+      a = randomInt(1, 20);
+      b = randomInt(1, 20);
+      answer = a + b;
+      break;
+    case "-":
+      a = randomInt(1, 20);
+      b = randomInt(1, a);
+      answer = a - b;
+      break;
+    case "*":
+      a = randomInt(1, 12);
+      b = randomInt(1, 12);
+      answer = a * b;
+      break;
+    case "/":
+      b = randomInt(1, 10);
+      let q = randomInt(1, 10);
+      a = b * q;
+      answer = q;
+      break;
+  }
 
-    const user = parseInt(prompt(`Сколько будет ${a} ${op} ${b} ?`), 10)
-    if (user === answer) {
-        alert('✅ Правильно!')
-    } else {
-        alert(`❌ Неверно. Правильный ответ: ${answer}`)
-    }
-    if (confirm('Ещё пример?')) startGameSimpleAriphmetix();
+  const userInput = prompt(`Сколько будет ${a} ${op} ${b} ?`);
+
+  if (userInput === null) {
+    alert("Игра завершена. До встречи! 👋");
+    return;
+  }
+
+  const trimmed = userInput.trim();
+  if (trimmed === "" || isNaN(Number(trimmed))) {
+    alert("⚠️ Некорректный ответ. Введите число.");
+    return startGameSimpleAriphmetix();
+  }
+
+  const user = Number(trimmed);
+
+  if (user === answer) {
+    alert("✅ Правильно!");
+  } else {
+    alert(`❌ Неверно. Правильный ответ: ${answer}`);
+  }
+
+  if (confirm("Ещё пример?")) {
+    startGameSimpleAriphmetix();
+  } else {
+    alert("Спасибо за игру! 👋");
+  }
 }
 // Перевени текст
 function startGameTernOver() {
-    let inputWord;
-    do {
-        inputWord = String(prompt('Введите слово и запомните его!') ?? '');
-        if (inputWord.trim() === '') {
-            alert('❌ Вы ничего не ввели');
-        }
-    } while (inputWord.trim() === '');
-
-    let inputTernOverWord;
-    do {
-        inputTernOverWord = String(prompt('Напишите слово наоборот.') ?? '');
-        if (inputTernOverWord.trim() === '') {
-            alert('❌ Вы ничего не ввели');
-        }
-    } while (inputTernOverWord.trim() === '');
-// Проверка
-    if (inputWord.trim() === inputTernOverWord.split('').reverse().join('')) {
-        alert(`✅ Отлично — "${inputTernOverWord}" соответствует "${inputWord}" написанному наоборот.`);
-    } else {
-        alert('❌ Не верно...');
+  let inputWord;
+  do {
+    inputWord = String(prompt("Введите слово!") ?? "");
+    if (inputWord.trim() === "") {
+      alert("❌ Вы ничего не ввели");
     }
+  } while (inputWord.trim() === "");
+
+  const reversed = inputWord.split("").reverse().join("");
+
+  alert(`🔄 "${inputWord}" наоборот: "${reversed}"`);
+
+  if (confirm("Ещё пример?")) {
+    startGameTernOver();
+  } else {
+    alert("Спасибо за игру! 👋");
+  }
 }
 //  Game quiz (Викторина)
 function startQuiz() {
