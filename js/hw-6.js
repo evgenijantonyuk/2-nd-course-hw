@@ -259,22 +259,29 @@ function startGameSimpleAriphmetix() {
 }
 // Перевени текст
 function startGameTernOver() {
-  let inputWord;
-  do {
-    inputWord = String(prompt("Введите слово!") ?? "");
-    if (inputWord.trim() === "") {
-      alert("❌ Вы ничего не ввели");
+  while (true) {
+    const input = prompt("Введите слово!");
+
+    if (input === null) {
+      alert("Спасибо за игру! 👋");
+      return;
     }
-  } while (inputWord.trim() === "");
 
-  const reversed = inputWord.split("").reverse().join("");
+    const inputWord = input.trim();
 
-  alert(`🔄 "${inputWord}" наоборот: "${reversed}"`);
+    if (inputWord === "") {
+      alert("❌ Вы ничего не ввели");
+      continue;
+    }
 
-  if (confirm("Ещё пример?")) {
-    startGameTernOver();
-  } else {
-    alert("Спасибо за игру! 👋");
+    const reversed = inputWord.split("").reverse().join("");
+
+    alert(`🔄 "${inputWord}" наоборот: "${reversed}"`);
+
+    if (!confirm("Ещё пример?")) {
+      alert("Спасибо за игру! 👋");
+      return;
+    }
   }
 }
 //  Game quiz (Викторина)
