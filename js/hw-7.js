@@ -1,6 +1,6 @@
 // Home work
 console.log('игра "Камень, ножницы бумага"')
-// Камень, ножницы бумага
+
     const startGameRockStone = () => {
     const userChoice = prompt(`Выберите цифру с вариантом, который Вы выбрали:\n ✊1. Камень, ✌️2. Ножницы, ✋3. Бумага`)
 
@@ -83,7 +83,7 @@ const peopleTask2 = [
 console.log(filter(peopleTask2, isMale))
 
 // =============================================================
-console.log('Task 3')
+// console.log('Task 3')
 
 let count = 0;
 
@@ -97,4 +97,35 @@ const intervalId = setInterval(() => {
   }
 }, 3000)
 // =============================================================
-console.log('Task 4')
+// console.log('Task 4')
+
+function delayForSecond(callback) {
+      // Код писать можно только внутри этой функции
+  setTimeout(callback, 1000)
+  // Если убрать вызов колбэка, то функция вызовется через указанное выше время, сейчас же она вызывается сразу и через указанное время
+
+//   callback()
+}
+delayForSecond(function () {
+  console.log('Привет, Глеб!')
+})
+// =============================================================
+// console.log('Task 5')
+
+// Функция delayForSecond через 1 секунду пишет в консоль 
+// «Прошла одна секунда», а затем вызывает переданный колбэк
+function delayForSecond(cb) {
+    setTimeout(() => {
+        console.log('Прошла одна секунда');
+        if(cb) {  cb() }
+    }, 1000)
+}
+
+// Функция sayHi выводит в консоль приветствие для указанного имени
+function sayHi (name) {
+    console.log(`Привет, ${name}!`);
+}
+// Код выше менять нельзя
+
+// Нужно изменить код ниже:
+delayForSecond(() => sayHi('Глеб'))
