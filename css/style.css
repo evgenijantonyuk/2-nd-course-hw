@@ -57,6 +57,25 @@ main {
   letter-spacing: 0px;
 }
 
+.hw-8__buttom {
+  margin-bottom: 25px;
+}
+
+.hw-8__block {
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  display: none;
+  max-width: 700px;
+  background-color: #e7f3c6;
+  padding: 35px;
+}
+
+.hw-8__block h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .star__right-up {
   position: absolute;
   background-image: url("../images/right-up_el.png");
