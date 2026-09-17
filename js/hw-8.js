@@ -50,7 +50,6 @@ function gameGuessNumber() {
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 function startGameSimpleAriphmetix() {
   const ops = ["+", "-", "*", "/"];
   const op = ops[randomInt(0, 3)];
@@ -216,61 +215,152 @@ function startQuiz() {
       `Вы прервали игру. Ваш результат: ${correctCount} из ${answeredCount} отвеченных вопросов.`,
     );
   }
+  if (confirm("Ещё пример?")) {
+    startQuiz();
+  } else {
+    alert("Спасибо за игру! 👋");
+  }
 }
 
-console.log('игра "Камень, ножницы бумага"')
+const startGameRockStone = () => {
+  const userChoice = prompt(
+    `Выберите цифру с вариантом, который Вы выбрали:\n ✊1. Камень, ✌️2. Ножницы, ✋3. Бумага`,
+  );
 
-    const startGameRockStone = () => {
-    const userChoice = prompt(`Выберите цифру с вариантом, который Вы выбрали:\n ✊1. Камень, ✌️2. Ножницы, ✋3. Бумага`)
+  const mainTerms = ["✊ 1. Камень", "✌️ 2. Ножницы", "✋3. Бумага"];
+  const randomIndex = Math.floor(Math.random() * mainTerms.length);
+  const randomItem = mainTerms[randomIndex];
 
-    const mainTerms = ['✊ 1. Камень', '✌️ 2. Ножницы', '✋3. Бумага']
-    const randomIndex = Math.floor(Math.random() * mainTerms.length)
-    const randomItem = mainTerms[randomIndex]
+  if (userChoice === null || userChoice.trim() === "") {
+    alert("Вы ничего не ввели");
+    return;
+  }
 
-    if (userChoice === null || userChoice.trim() === '') {
-        alert('Вы ничего не ввели')
-        return
-    }
+  if (!["1", "2", "3"].includes(userChoice.trim())) {
+    alert("Введите 1, 2 или 3");
+    return;
+  }
 
-    if (!['1', '2', '3'].includes(userChoice.trim())) {
-        alert('Введите 1, 2 или 3')
-        return
-    }
+  const user = Number(userChoice.trim());
+  const comp = randomIndex + 1;
 
-    const user = Number(userChoice.trim())
-    const comp = randomIndex + 1
+  // 1 - камень, 2 - ножницы, 3 - бумага
+  const win =
+    (user === 1 && comp === 2) ||
+    (user === 2 && comp === 3) ||
+    (user === 3 && comp === 1);
 
-    // 1 - камень, 2 - ножницы, 3 - бумага
-    const win = (user === 1 && comp === 2) ||
-                (user === 2 && comp === 3) ||
-                (user === 3 && comp === 1)
+  if (user === comp) {
+    alert(`🤝 Ничья! Компьютер загадал \n ${randomItem}`);
+  } else if (win) {
+    alert(`✅ Вы выиграли! Компьютер загадал \n ${randomItem}`);
+  } else {
+    alert(`❌ Вы проиграли, компьютер загадал \n ${randomItem}`);
+  }
 
-    if (user === comp) {
-        alert(`🤝 Ничья! Компьютер загадал \n ${randomItem}`)
-    } else if (win) {
-        alert(`✅ Вы выиграли! Компьютер загадал \n ${randomItem}`)
-    } else {
-        alert(`❌ Вы проиграли, компьютер загадал \n ${randomItem}`)
-    }
-
-    if (confirm("Ещё пример?")) {
-        startGameRockStone();
-    } else {
-        alert("Спасибо за игру! 👋");
-    }
-}
+  if (confirm("Ещё пример?")) {
+    startGameRockStone();
+  } else {
+    alert("Спасибо за игру! 👋");
+  }
+};
 // ==================================================================================
 // Task 1
-console.log('Task 1')
-const button = document.querySelector('.hw-8__buttom')
-const hwText = document.querySelector('.hw-8__block')
+const button = document.querySelector(".hw-8__button");
+const hwTextEl = document.querySelector(".hw-8__block");
 
-button.addEventListener('click', () => { 
-      if (hwText.style.display === 'none') {
-            hwText.style.display = 'block'
-            button.textContent = 'Скрыть текст'
-      } else {
-          hwText.style.display = 'none'
-          button.textContent = 'Показать текст'  
-      }
-})
+button.addEventListener("click", () => {
+  if (hwTextEl.style.display === "none") {
+    hwTextEl.style.display = "block";
+    button.textContent = "Скрыть текст";
+  } else {
+    hwTextEl.style.display = "none";
+    button.textContent = "Показать текст";
+  }
+});
+
+// Task 2
+const buttonColor = document.querySelector(".hw-8__button-color");
+const changeColorEl = document.querySelector(".hw-8__text-two");
+
+buttonColor.addEventListener("click", () => {
+  changeColorEl.classList.toggle("active");
+});
+
+// Task 3
+const buttonChaigeText = document.querySelector(".hw-8__button-chaige-text");
+const changeTitleEl = document.querySelector(".hw-8__title");
+
+buttonChaigeText.addEventListener("click", () => {
+  if (changeTitleEl.innerHTML === "Начальный заголовок.") {
+    changeTitleEl.innerHTML = `
+      <h2>Мы изменили заголовок!</h2>
+      <p>Новый текст параграфа.</p>
+    `;
+  } else {
+    changeTitleEl.innerHTML = "Начальный заголовок.";
+  }
+});
+
+// Task 4
+const buttonChangeDescr = document.querySelector(".hw-8__change-descr");
+const changeDescrEl = document.querySelectorAll(".hw-8__description");
+
+buttonChangeDescr.addEventListener("click", () => {
+  changeDescrEl.forEach((element) => {
+    if (
+      element.textContent ===
+      "Lorem ipsum dolor sit, amet consectetur adipisicing."
+    ) {
+      element.textContent = "Измененный текст";
+    } else {
+      element.textContent =
+        "Lorem ipsum dolor sit, amet consectetur adipisicing.";
+    }
+  });
+});
+
+// Task 5
+const buttonChangeSomeDescr = document.querySelector(".hw-8__changeDescr");
+const changeSomeDescrEl = document.querySelectorAll(".hw-8__descr");
+
+buttonChangeSomeDescr.addEventListener("click", () => {
+  changeSomeDescrEl.forEach((item) => {
+    if (
+      item.textContent ===
+      "Lorem ipsum dolor sit, amet consectetur adipisicing."
+    ) {
+      item.textContent = "Новый текст.";
+    } else {
+      item.textContent = "Lorem ipsum dolor sit, amet consectetur adipisicing.";
+    }
+  });
+});
+
+// Task 6
+const parent = document.querySelector("#addElem");
+const buttonCreateDescr = document.querySelector(".hw-8__add-ell");
+
+buttonCreateDescr.addEventListener("click", () => {
+  const titleEl = document.createElement("h2");
+  titleEl.className = "new-title";
+  titleEl.textContent = "Title";
+
+  const paragraphEl = document.createElement("p");
+  paragraphEl.className = "new-text";
+  paragraphEl.textContent = "Новый абзац!";
+
+  parent.appendChild(titleEl);
+  parent.appendChild(paragraphEl);
+  // Сколько раз нажать на клавишу "добавить" - столько "h" и "p" добавится
+  // Если "id" добавить к body, то параграф добавится в конец страницы, получается куда нужно добавить элемент, тому блоку и присваиваем id.
+});
+
+// Task 7
+//  Происходит удаление в списке параграфов задания 5
+const buttonDellEll = document.querySelector(".hw-8__del-ell");
+
+buttonDellEll.addEventListener("click", () => {
+  document.querySelector(".hw-8__descr")?.remove();
+});
+// ?. (Оператор опциональной цепочки) — защищает код от ошибок. Если элемент с таким классом не будет найден, поиск вернет null. Благодаря оператору ?. код не «упадет» с ошибкой, а просто остановит выполнение.
