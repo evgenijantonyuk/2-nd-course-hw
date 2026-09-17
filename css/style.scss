@@ -233,15 +233,30 @@ main {
 }
 
 .line {
-  &__content {
+  overflow: hidden;            
+  width: 100vw;
+  &__track {
+    display: flex;
+    width: max-content;
+    animation-play-state: paused; // — по умолчанию стоит
+    animation: line-scroll 30s linear infinite;
+    animation-play-state: paused;
+  }
+// При наведении на секцию — запускаем прокрутку
+  &:hover &__track {
+    animation-play-state: running;
+  }
+ &__content {
     padding-left: 20px;
-    width: 100vw;
+    width: max-content;         
     height: 90px;
-    overflow: auto; //  при создании JS скрипта прокрутки, изменить на hidden
+    overflow: hidden;            
     background-color: #bcec30;
     display: flex;
     align-items: center;
     gap: 51px;
+    flex-shrink: 0;              
+    padding-right: 51px;        
   }
   &__text {
     white-space: nowrap;
@@ -251,10 +266,24 @@ main {
     font-size: 30px;
     line-height: 110%;
     letter-spacing: 4%;
+    color: #000;
+    text-decoration: none;
   }
   &__star {
     width: 35px;
     height: 35px;
+    flex-shrink: 0;
+  }
+}
+
+@keyframes line-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+// Если пользователь отключил анимации — не крутим
+@media (prefers-reduced-motion: reduce) {
+  .line__track {
+    animation: none;
   }
 }
 // Main

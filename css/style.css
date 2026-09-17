@@ -242,15 +242,33 @@ main {
   border: 1px solid #8C8C8C;
 }
 
+.line {
+  overflow: hidden;
+  width: 100vw;
+}
+.line__track {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  animation-play-state: paused;
+  animation: line-scroll 30s linear infinite;
+  animation-play-state: paused;
+}
+.line:hover .line__track {
+  animation-play-state: running;
+}
 .line__content {
   padding-left: 20px;
-  width: 100vw;
+  width: -moz-max-content;
+  width: max-content;
   height: 90px;
-  overflow: auto;
+  overflow: hidden;
   background-color: #bcec30;
   display: flex;
   align-items: center;
   gap: 51px;
+  flex-shrink: 0;
+  padding-right: 51px;
 }
 .line__text {
   white-space: nowrap;
@@ -260,12 +278,28 @@ main {
   font-size: 30px;
   line-height: 110%;
   letter-spacing: 4%;
+  color: #000;
+  text-decoration: none;
 }
 .line__star {
   width: 35px;
   height: 35px;
+  flex-shrink: 0;
 }
 
+@keyframes line-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .line__track {
+    animation: none;
+  }
+}
 .title_about {
   padding-top: 100px;
   margin-bottom: 32px;
