@@ -275,7 +275,26 @@ main {
     flex-shrink: 0;
   }
 }
+// =============== Изменение цвета
+.fon-body {
+  background-color: #e1ff8f;
+}
 
+.buttons {
+  padding-bottom: 15px;
+}
+
+.colorStartBtn {
+  margin-bottom: 15px;
+}
+/* Кнопка стоп изначально скрыта */
+.button__stopRandomColor {
+  background-color: #f44336;
+  color: white;
+  display: none;
+}
+
+// ===========================================================
 @keyframes line-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }

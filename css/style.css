@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -285,6 +286,25 @@ main {
   width: 35px;
   height: 35px;
   flex-shrink: 0;
+}
+
+.fon-body {
+  background-color: #e1ff8f;
+}
+
+.buttons {
+  padding-bottom: 15px;
+}
+
+.colorStartBtn {
+  margin-bottom: 15px;
+}
+
+/* Кнопка стоп изначально скрыта */
+.button__stopRandomColor {
+  background-color: #f44336;
+  color: white;
+  display: none;
 }
 
 @keyframes line-scroll {

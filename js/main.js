@@ -221,7 +221,7 @@ function startQuiz() {
     alert("Спасибо за игру! 👋");
   }
 }
-
+// Камень, ножницы, бумага
 const startGameRockStone = () => {
   const userChoice = prompt(
     `Выберите цифру с вариантом, который Вы выбрали:\n ✊1. Камень, ✌️2. Ножницы, ✋3. Бумага`,
@@ -233,11 +233,21 @@ const startGameRockStone = () => {
 
   if (userChoice === null || userChoice.trim() === "") {
     alert("Вы ничего не ввели");
+     if (confirm("Ещё пример?")) {
+    startGameRockStone();
+  } else {
+    alert("Спасибо за игру! 👋");
+  }
     return;
   }
 
   if (!["1", "2", "3"].includes(userChoice.trim())) {
     alert("Введите 1, 2 или 3");
+     if (confirm("Ещё пример?")) {
+    startGameRockStone();
+  } else {
+    alert("Спасибо за игру! 👋");
+  }
     return;
   }
 
@@ -264,4 +274,29 @@ const startGameRockStone = () => {
     alert("Спасибо за игру! 👋");
   }
 };
-// ==================================================================================
+
+// Сменить фон
+const startBtnEl = document.getElementById("startBtn");
+const stopBtnEl = document.getElementById("stopBtn");
+const main = document.getElementById("main");
+const changeColorBtn = document.querySelector("colorStartBtn");
+// Функция генерации случайного цвета
+function getRandomColor() {
+  const randomColor =
+    "#" +
+    Math.floor(Math.random() * 16777215)
+      .toString(16)
+      .padStart(6, "0");
+  main.style.backgroundColor = randomColor;
+}
+
+startBtnEl.addEventListener("click", () => {
+  main.style.backgroundColor = getRandomColor();
+  stopBtnEl.style.display = "block";
+});
+
+stopBtnEl.addEventListener("click", () => {
+  main.style.backgroundColor = "#202027";
+  stopBtnEl.style.display = "none";
+});
+

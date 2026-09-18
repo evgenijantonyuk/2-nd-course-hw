@@ -33,7 +33,7 @@
         <!-- <a href="./homeWork.html" class="button header__button">Перейти на учебный проект</a> -->
     </header>
 
-    <main>
+    <main id="main">
       <section class="line">
         <div class="line__track">
           <div class="line__content">
@@ -163,7 +163,7 @@
         </div>
       </section>
 
-      <section class="center mini-games">
+      <section id="mini-games" class="center mini-games">
         <h2 class="title title_mini-games">Мини-игры</h2>
         <div class="mini-games__star-big"></div>
         <div class="mini-games__star-small"></div>
@@ -262,7 +262,7 @@
             />
           </a>
 
-          <a id="generator" href="#" class="mini-games__game">
+          <div id="generator" class="mini-games__game">
             <img
               class="mini-games__img"
               src="./images/game-6-big.png"
@@ -278,11 +278,12 @@
                 Игра, в которой при клике на кнопку фон страницы меняется на
                 случайный.
               </p>
-              <div class="button">
-                <button class="button__mini-games">Играть!</button>
+              <div class="buttons">
+                <button id="startBtn" class="button__mini-games colorStartBtn">Играть!</button>
+                <button id="stopBtn" class="button button__mini-games button__stopRandomColor">Закончить</button>
               </div>
             </div>
-          </a>
+          </div>
         </div>
 
         <div class="mini-games__star-big-down"></div>
