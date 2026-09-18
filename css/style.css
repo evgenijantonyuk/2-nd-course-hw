@@ -57,6 +57,100 @@ main {
   letter-spacing: 0px;
 }
 
+#app {
+  padding-bottom: 35px;
+  background-color: #e1ff8f;
+}
+
+.hw-8 {
+  padding: 0 25px 0 25px;
+}
+
+.hw-8__buttons {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.hw-8__button {
+  margin: 25px;
+}
+
+.hw-8__button:not(:last-child) {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.hw-8__button-color {
+  margin-bottom: 25px;
+}
+
+.hw-8__block {
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  display: none;
+  max-width: 700px;
+  background-color: #e7f3c6;
+  padding: 35px;
+  border-radius: 10px;
+}
+
+.hw-8__block h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.hw-8__text-two {
+  padding: 25px 0 25px 0;
+}
+
+.active {
+  color: rgb(80, 2, 247);
+}
+
+.new-title {
+  font-size: 24px;
+}
+
+.new-text {
+  font-size: 18px;
+}
+
+.hw-8__titleBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.hw-8__descriptions {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.hw-8__description:not(:last-child) {
+  margin-bottom: 9px;
+}
+
+.hw-8__descrs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 15px;
+}
+
+.hw-8__descr-empty {
+  color: #2a2a80;
+}
+
+.hw-8__new-ell {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 .star__right-up {
   position: absolute;
   background-image: url("../images/right-up_el.png");
@@ -148,15 +242,33 @@ main {
   border: 1px solid #8C8C8C;
 }
 
+.line {
+  overflow: hidden;
+  width: 100vw;
+}
+.line__track {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  animation-play-state: paused;
+  animation: line-scroll 30s linear infinite;
+  animation-play-state: paused;
+}
+.line:hover .line__track {
+  animation-play-state: running;
+}
 .line__content {
   padding-left: 20px;
-  width: 100vw;
+  width: -moz-max-content;
+  width: max-content;
   height: 90px;
-  overflow: auto;
+  overflow: hidden;
   background-color: #bcec30;
   display: flex;
   align-items: center;
   gap: 51px;
+  flex-shrink: 0;
+  padding-right: 51px;
 }
 .line__text {
   white-space: nowrap;
@@ -166,12 +278,28 @@ main {
   font-size: 30px;
   line-height: 110%;
   letter-spacing: 4%;
+  color: #000;
+  text-decoration: none;
 }
 .line__star {
   width: 35px;
   height: 35px;
+  flex-shrink: 0;
 }
 
+@keyframes line-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .line__track {
+    animation: none;
+  }
+}
 .title_about {
   padding-top: 100px;
   margin-bottom: 32px;
