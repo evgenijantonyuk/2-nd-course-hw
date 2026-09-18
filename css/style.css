@@ -288,10 +288,6 @@ main {
   flex-shrink: 0;
 }
 
-.fon-body {
-  background-color: #e1ff8f;
-}
-
 .buttons {
   padding-bottom: 15px;
 }
