@@ -18,14 +18,14 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 142%;
-  transition: all .3s;
+  transition: all .5s;
 }
+
 .button__mini-games:hover {
   background-color: #fff;
   color: #000;
-  border: 1px solid #8C8C8C;
+  border: 1px solid #000;
 }
-
 
 .mini-games__game:nth-child(odd) {
   justify-content: space-between;
@@ -35,18 +35,18 @@
   position: relative;
   padding-bottom: 144px;
   &__game {
+    width: 100%;
     display: flex;
     border-radius: 32px;
     background-color: #fff;
 
   }
   &__info {
-    width: 100%;
-    padding-left: 48px;
-    padding-top: 48px;
+    width: 50%;
+    padding: 48px;
   }
   &__img {
-    max-width: 600px;
+    width: 50%;
   }
   &__title {
     max-width: 570px;

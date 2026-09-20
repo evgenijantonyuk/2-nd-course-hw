@@ -16,9 +16,12 @@
     margin-bottom: 72px;
   }
   &__games {
+    position: relative;
+    z-index: 1;
     align-self: start;
     margin-bottom: 108px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 32px;
   }
